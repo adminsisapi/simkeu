@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="id" class="overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cash Flow Gudang SS K-07 - CV. YUDISTIRA CATTLE AND FARM</title>
+  <link rel="icon" type="image/png" href="cv.png">
+  <link rel="apple-touch-icon" href="cv.png">
+  <meta name="theme-color" content="#0f172a">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #f1f5f9;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    .sub-tab-active {
+      background-color: #059669 !important;
+      color: #ffffff !important;
+      border-color: #059669 !important;
+      box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.25);
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+    /* Tema Mode Gelap (Dark Mode) */
+    body.dark-mode { background-color: #090d16 !important; color: #e2e8f0 !important; }
+    body.dark-mode .bg-white { background-color: #1e293b !important; color: #f1f5f9 !important; }
+    body.dark-mode .bg-slate-50, body.dark-mode .bg-slate-100 { background-color: #0f172a !important; color: #cbd5e1 !important; }
+    body.dark-mode .text-slate-800, body.dark-mode .text-slate-900, body.dark-mode .text-slate-700 { color: #f1f5f9 !important; }
+    body.dark-mode .text-slate-500, body.dark-mode .text-slate-600 { color: #94a3b8 !important; }
+    body.dark-mode .border-slate-200, body.dark-mode .border-slate-300, body.dark-mode .border-slate-100 { border-color: #334155 !important; }
+    body.dark-mode .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #334155 !important; }
+    body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+      border-color: #334155 !important;
+    }
+    body.dark-mode tr.hover\:bg-slate-50:hover { background-color: rgba(51, 65, 85, 0.45) !important; }
+
+    @keyframes pulseLogo {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.88); opacity: 0.45; }
+    }
+    .animate-logo-blink { animation: pulseLogo 1s infinite ease-in-out; }
+  </style>
+</head>
+<body class="dark-mode text-slate-800 min-h-screen flex flex-col w-full">
+
+  <!-- OVERLAY LOADING TENGAH -->
+  <div id="centerLoadingOverlay" class="fixed inset-0 bg-slate-950/50 backdrop-blur-[2px] z-[90] hidden items-center justify-center p-4">
+    <div class="bg-slate-900/95 border border-slate-700 text-white px-5 py-4 rounded-2xl shadow-2xl flex flex-col items-center space-y-2.5 min-w-[140px]">
+      <div class="relative w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-500/40 p-1.5 flex items-center justify-center animate-logo-blink">
+        <img src="cv.png" alt="Loading" class="w-full h-full object-contain rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="hidden w-full h-full items-center justify-center text-emerald-400 text-lg"><i class="fa-solid fa-wallet"></i></div>
+      </div>
+      <span id="centerLoadingText" class="text-[11px] font-bold tracking-wider uppercase text-emerald-400">Memproses...</span>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFIKASI MELAYANG -->
+  <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 bg-slate-900/95 text-white px-4 py-2.5 rounded-full shadow-2xl border border-emerald-500/50 hidden items-center space-x-2 z-[100] text-xs font-bold backdrop-blur-md max-w-[90vw] truncate">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-sm shrink-0"></i>
+    <span id="toastMsg" class="truncate">Berhasil!</span>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 0. LAYAR LOGIN KEAMANAN (user: admin | Pass: adminss)     -->
+  <!-- ========================================================= -->
+  <div id="loginScreen" class="fixed inset-0 bg-slate-950 z-50 flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl border border-slate-800 overflow-hidden my-auto">
+      <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 p-6 text-center text-white border-b border-slate-700">
+        <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 p-1.5 flex items-center justify-center mx-auto shadow-lg mb-3 overflow-hidden">
+          <img src="cv.png" alt="Logo CV" class="w-full h-full object-contain rounded-xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="hidden w-full h-full bg-emerald-500 text-slate-950 items-center justify-center text-2xl font-extrabold rounded-xl">
+            <i class="fa-solid fa-vault"></i>
+          </div>
+        </div>
+        <h1 class="text-lg font-extrabold tracking-wide text-white">Cash Flow Gudang SS K-07</h1>
+        <p class="text-[11px] text-amber-400 font-bold uppercase tracking-widest mt-0.5">CV. YUDISTIRA CATTLE AND FARM</p>
+        <p class="text-[10px] text-slate-400 mt-1">Sistem Buku Kas & Nota Otomatis</p>
+      </div>
+
+      <form onsubmit="handleLogin(event)" class="p-5 space-y-4">
+        <div id="loginError" class="hidden bg-rose-50 border border-rose-200 text-rose-700 px-3 py-2 rounded-xl text-xs font-semibold flex items-center space-x-2">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>Username atau Password salah!</span>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Username</label>
+          <div class="relative">
+            <i class="fa-solid fa-user absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+            <input type="text" id="loginUser" required placeholder="Masukkan username..." autocomplete="username" class="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-300 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Password</label>
+          <div class="relative">
+            <i class="fa-solid fa-lock absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+            <input type="password" id="loginPass" required placeholder="Masukkan password..." autocomplete="current-password" class="w-full pl-9 pr-10 py-2 rounded-xl border border-slate-300 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600">
+              <i id="eyeIcon" class="fa-solid fa-eye text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-2.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-sm">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Masuk Sistem Kas</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 1. BARIS HEADER UTAMA DI ATAS (RESPONSIF HP & TABLET)     -->
+  <!-- ========================================================= -->
+  <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-30 border-b border-slate-800 w-full">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5">
+      <div class="flex items-center justify-between gap-2">
+        
+        <!-- Identitas Gudang & Perusahaan -->
+        <div class="flex items-center space-x-2.5 min-w-0">
+          <div class="w-10 h-10 rounded-xl bg-white/10 border border-slate-700 p-1 flex items-center justify-center shadow shrink-0 overflow-hidden">
+            <img src="cv.png" alt="Logo" class="w-full h-full object-contain rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hidden w-full h-full bg-emerald-600 text-white items-center justify-center font-extrabold rounded-lg text-sm">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center space-x-1.5">
+              <h1 class="text-xs sm:text-base font-extrabold tracking-wide text-white truncate">Cash Flow Gudang SS K-07</h1>
+              <span class="hidden sm:inline-block bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[9px] px-2 py-0.5 rounded-full font-extrabold uppercase shrink-0">TERHUBUNG</span>
+            </div>
+            <p class="text-[10px] sm:text-xs text-amber-400 font-bold tracking-wider uppercase truncate">CV. YUDISTIRA CATTLE AND FARM</p>
+          </div>
+        </div>
+
+        <!-- Jam Live (Tampil di Tablet/Desktop) -->
+        <div class="hidden lg:flex items-center space-x-2 bg-slate-800/90 border border-slate-700 px-3 py-1.5 rounded-xl text-xs shrink-0">
+          <i class="fa-regular fa-clock text-emerald-400"></i>
+          <span id="liveClockHeader" class="font-mono-code font-semibold text-slate-200">Memuat...</span>
+        </div>
+
+        <!-- Deretan Tombol Baris Atas -->
+        <div class="flex items-center space-x-1 sm:space-x-1.5 shrink-0">
+          <button onclick="syncFromGoogleSheets(false)" class="bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 w-8 h-8 rounded-xl text-xs transition flex items-center justify-center" title="Sinkronisasi Google Sheets">
+            <i id="syncIcon" class="fa-solid fa-rotate"></i>
+          </button>
+
+          <button onclick="openModal('modalCloudSync')" class="bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 w-8 h-8 rounded-xl text-xs transition flex items-center justify-center" title="Pengaturan URL Script GS">
+            <i class="fa-solid fa-link"></i>
+          </button>
+
+          <button onclick="toggleDarkMode()" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 w-8 h-8 rounded-xl text-xs transition flex items-center justify-center" title="Mode Gelap / Terang">
+            <i id="themeIcon" class="fa-solid fa-sun"></i>
+          </button>
+
+          <button onclick="handleLogout()" class="bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 px-2.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center space-x-1" title="Keluar">
+            <i class="fa-solid fa-power-off text-[11px]"></i>
+            <span class="hidden sm:inline">Keluar</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 2. KONTEN UTAMA (KOTAK-KOTAK DI DEPAN & TABEL OTOMATIS)   -->
+  <!-- ========================================================= -->
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 flex-grow w-full space-y-5">
+
+    <!-- BARIS 1: 4 KOTAK RINGKASAN SALDO OTOMATIS (KPI CARDS) -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+      
+      <!-- Kotak 1: Saldo Akhir (Utama) -->
+      <div class="col-span-2 lg:col-span-1 bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-900 text-white p-4 rounded-2xl shadow-lg border border-emerald-500/40 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] sm:text-xs font-extrabold text-emerald-300 uppercase tracking-wider">SALDO AKHIR SAAT INI</span>
+          <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-sm"><i class="fa-solid fa-vault"></i></span>
+        </div>
+        <div class="mt-2.5">
+          <h2 id="kpiSaldoAkhir" class="text-xl sm:text-2xl font-extrabold font-mono-code text-amber-400 tracking-tight">Rp 0</h2>
+          <p class="text-[10px] text-slate-300 mt-0.5">Otomatis: Saldo Awal + Masuk - Keluar</p>
+        </div>
+      </div>
+
+      <!-- Kotak 2: Saldo Awal Manual -->
+      <div onclick="openModal('modalSaldoAwal')" class="bg-white hover:border-amber-500 p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between cursor-pointer transition group">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] sm:text-xs font-extrabold text-amber-600 uppercase">SALDO AWAL</span>
+          <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xs group-hover:scale-110 transition"><i class="fa-solid fa-pen-to-square"></i></span>
+        </div>
+        <div class="mt-2">
+          <h3 id="kpiSaldoAwal" class="text-sm sm:text-lg font-extrabold font-mono-code text-slate-800">Rp 0</h3>
+          <p id="kpiKetSaldoAwal" class="text-[10px] text-amber-600 font-semibold truncate mt-0.5">Klik untuk ubah manual</p>
+        </div>
+      </div>
+
+      <!-- Kotak 3: Total Kas Masuk -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] sm:text-xs font-extrabold text-emerald-600 uppercase">TOTAL MASUK (+)</span>
+          <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-down-long"></i></span>
+        </div>
+        <div class="mt-2">
+          <h3 id="kpiTotalMasuk" class="text-sm sm:text-lg font-extrabold font-mono-code text-emerald-600">+Rp 0</h3>
+          <p id="kpiCountMasuk" class="text-[10px] text-slate-500 font-semibold mt-0.5">0 Transaksi Masuk</p>
+        </div>
+      </div>
+
+      <!-- Kotak 4: Total Kas Keluar -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] sm:text-xs font-extrabold text-rose-600 uppercase">TOTAL KELUAR (-)</span>
+          <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-up-long"></i></span>
+        </div>
+        <div class="mt-2">
+          <h3 id="kpiTotalKeluar" class="text-sm sm:text-lg font-extrabold font-mono-code text-rose-600">-Rp 0</h3>
+          <p id="kpiCountKeluar" class="text-[10px] text-slate-500 font-semibold mt-0.5">0 Transaksi Keluar</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BARIS 2: MENU KOTAK-KOTAK AKSI CEPAT DI DEPAN (USER-FRIENDLY HP & TAB) -->
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+      
+      <!-- Menu Kotak 1: Input Kas Masuk -->
+      <button type="button" onclick="bukaModalTransaksi('MASUK')" class="bg-white hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-4 shadow-sm transition flex flex-col justify-between text-left group active:scale-95">
+        <div class="flex items-center justify-between w-full">
+          <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-base shadow group-hover:scale-105 transition">
+            <i class="fa-solid fa-circle-plus"></i>
+          </div>
+          <span class="text-[10px] font-extrabold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">+ MASUK</span>
+        </div>
+        <div class="mt-3">
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Input Kas Masuk</h4>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Penjualan, Setoran, Dana Masuk</p>
+        </div>
+      </button>
+
+      <!-- Menu Kotak 2: Input Kas Keluar -->
+      <button type="button" onclick="bukaModalTransaksi('KELUAR')" class="bg-white hover:border-rose-500 border-2 border-slate-200 rounded-2xl p-4 shadow-sm transition flex flex-col justify-between text-left group active:scale-95">
+        <div class="flex items-center justify-between w-full">
+          <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center text-base shadow group-hover:scale-105 transition">
+            <i class="fa-solid fa-circle-minus"></i>
+          </div>
+          <span class="text-[10px] font-extrabold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">- KELUAR</span>
+        </div>
+        <div class="mt-3">
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Input Kas Keluar</h4>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Operasional, Bongkar Muat, BBM</p>
+        </div>
+      </button>
+
+      <!-- Menu Kotak 3: Set Saldo Awal Manual -->
+      <button type="button" onclick="openModal('modalSaldoAwal')" class="bg-white hover:border-amber-500 border-2 border-slate-200 rounded-2xl p-4 shadow-sm transition flex flex-col justify-between text-left group active:scale-95">
+        <div class="flex items-center justify-between w-full">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-base shadow group-hover:scale-105 transition">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+          </div>
+          <span class="text-[10px] font-extrabold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">MANUAL</span>
+        </div>
+        <div class="mt-3">
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Set Saldo Awal</h4>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Atur Modal / Saldo Buku Kas</p>
+        </div>
+      </button>
+
+      <!-- Menu Kotak 4: Pilihan Cetak & Unduh Laporan (Harian / Mingguan / Bulanan) -->
+      <button type="button" onclick="openModal('modalPilihCSV')" class="bg-white hover:border-blue-500 border-2 border-slate-200 rounded-2xl p-4 shadow-sm transition flex flex-col justify-between text-left group active:scale-95">
+        <div class="flex items-center justify-between w-full">
+          <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center text-base shadow group-hover:scale-105 transition">
+            <i class="fa-solid fa-print"></i>
+          </div>
+          <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">CETAK / CSV</span>
+        </div>
+        <div class="mt-3">
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Cetak & Unduh Laporan</h4>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Model Nota Memanjang & CSV</p>
+        </div>
+      </button>
+
+    </section>
+
+    <!-- BARIS 3: FILTER PERIODE (HARIAN, MINGGUAN, BULANAN) & TABEL BUKU KAS -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-4 sm:p-5 space-y-4">
+      
+      <!-- Baris Atas: Tab Harian / Mingguan / Bulanan / Semua & Tombol Cetak / CSV -->
+      <div class="flex flex-wrap items-center justify-between gap-2.5 border-b border-slate-100 pb-3">
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button type="button" onclick="setModePeriode('HARIAN')" id="tabPeriodeHarian" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-100 text-slate-700 border border-slate-300 transition">Harian</button>
+          <button type="button" onclick="setModePeriode('MINGGUAN')" id="tabPeriodeMingguan" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-100 text-slate-700 border border-slate-300 transition">Mingguan</button>
+          <button type="button" onclick="setModePeriode('BULANAN')" id="tabPeriodeBulanan" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-100 text-slate-700 border border-slate-300 transition">Bulanan</button>
+          <button type="button" onclick="setModePeriode('SEMUA')" id="tabPeriodeSemua" class="sub-tab-active px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-100 text-slate-700 border border-slate-300 transition">Semua Data</button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button type="button" onclick="bukaModalCetakLaporan(modePeriodeAktif, true)" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-xl text-xs font-extrabold shadow flex items-center space-x-1.5 transition">
+            <i class="fa-solid fa-print"></i>
+            <span id="btnQuickPrintText">Cetak Laporan (Semua)</span>
+          </button>
+          <button type="button" onclick="exportCashFlowCSV(modePeriodeAktif)" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-xl text-xs font-extrabold shadow flex items-center space-x-1.5 transition">
+            <i class="fa-solid fa-file-csv"></i>
+            <span id="btnQuickCsvText">CSV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Baris Sub-Filter Detail (Tanggal / Minggu / Bulan / Jenis / Cari) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 items-end">
+        
+        <!-- Box Filter Harian -->
+        <div id="boxFilterHarian" class="hidden col-span-2 sm:col-span-1">
+          <div class="flex justify-between mb-1">
+            <label class="text-[10px] font-bold text-slate-500 uppercase">Pilih Tanggal</label>
+            <button type="button" onclick="setTodayFilter()" class="text-[10px] font-extrabold text-emerald-600 hover:underline">Hari Ini</button>
+          </div>
+          <input type="date" id="filterTanggalHarian" onchange="renderTabelKas()" class="w-full rounded-xl border border-slate-300 px-2.5 py-1.5 text-xs font-bold bg-white">
+        </div>
+
+        <!-- Box Filter Mingguan -->
+        <div id="boxFilterMingguan" class="hidden col-span-2 sm:col-span-1">
+          <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Rentang Mingguan</label>
+          <select id="filterRentangMinggu" onchange="renderTabelKas()" class="w-full rounded-xl border border-slate-300 px-2.5 py-1.5 text-xs font-bold bg-white">
+            <option value="7">7 Hari Terakhir</option>
+            <option value="14">14 Hari Terakhir</option>
+            <option value="MINGGU_INI">Minggu Kalender Ini</option>
+          </select>
+        </div>
+
+        <!-- Box Filter Bulanan -->
+        <div id="boxFilterBulanan" class="hidden col-span-2 sm:col-span-1 grid grid-cols-2 gap-1.5">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Bulan</label>
+            <select id="filterBulan" onchange="renderTabelKas()" class="w-full rounded-xl border border-slate-300 px-2 py-1.5 text-xs font-bold bg-white">
+              <option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option>
+              <option value="04">Apr</option><option value="05">Mei</option><option value="06">Jun</option>
+              <option value="07">Jul</option><option value="08">Agu</option><option value="09">Sep</option>
+              <option value="10">Okt</option><option value="11">Nov</option><option value="12">Des</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Tahun</label>
+            <select id="filterTahun" onchange="renderTabelKas()" class="w-full rounded-xl border border-slate-300 px-2 py-1.5 text-xs font-bold bg-white">
+              <option value="2025">2025</option>
+              <option value="2026" selected>2026</option>
+              <option value="2027">2027</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Info Box Saat Mode SEMUA -->
+        <div id="boxFilterSemua" class="col-span-2 sm:col-span-1">
+          <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Rentang Waktu</label>
+          <div class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-600">Semua Transaksi</div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Jenis Kas</label>
+          <select id="filterJenisKas" onchange="renderTabelKas()" class="w-full rounded-xl border border-slate-300 px-2.5 py-1.5 text-xs font-bold bg-white">
+            <option value="SEMUA">Semua Jenis</option>
+            <option value="MASUK">Kas Masuk (+)</option>
+            <option value="KELUAR">Kas Keluar (-)</option>
+          </select>
+        </div>
+
+        <div class="col-span-2">
+          <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Pencarian Cepat</label>
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+            <input type="text" id="searchKas" oninput="renderTabelKas()" placeholder="Cari No. Nota, Kategori, Uraian, atau PIC..." class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 text-xs font-semibold">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabel Cash Flow -->
+      <div class="overflow-x-auto custom-scrollbar rounded-xl border border-slate-200">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white text-[10px] sm:text-[11px] uppercase">
+              <th class="py-3 px-3 font-bold">Tanggal & Jam</th>
+              <th class="py-3 px-3 font-bold">No. Nota / Kategori</th>
+              <th class="py-3 px-3 font-bold">Keterangan / Uraian</th>
+              <th class="py-3 px-3 font-bold text-center">PIC</th>
+              <th class="py-3 px-3 font-bold text-right text-emerald-400">Masuk (+)</th>
+              <th class="py-3 px-3 font-bold text-right text-rose-400">Keluar (-)</th>
+              <th class="py-3 px-3 font-bold text-right text-amber-300">Saldo</th>
+              <th class="py-3 px-3 font-bold text-center">Nota & Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyKas" class="divide-y divide-slate-200 text-xs"></tbody>
+          <tfoot id="tfootKas" class="bg-slate-100 font-extrabold text-xs border-t-2 border-slate-300"></tfoot>
+        </table>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER RINGKAS -->
+  <footer class="max-w-7xl mx-auto px-4 py-4 text-center text-[11px] text-slate-500 w-full">
+    Cash Flow Gudang SS K-07 &bull; <b>CV. YUDISTIRA CATTLE AND FARM</b>
+  </footer>
+
+
+  <!-- ========================================================= -->
+  <!-- MODAL 1: INPUT TRANSAKSI KAS MASUK / KAS KELUAR           -->
+  <!-- ========================================================= -->
+  <div id="modalTransaksiKas" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden my-auto">
+      
+      <div id="headerModalTransaksi" class="bg-emerald-700 text-white px-4 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <i id="iconModalTransaksi" class="fa-solid fa-circle-plus text-base"></i>
+          <h3 id="judulModalTransaksi" class="font-extrabold text-sm">Input Kas Masuk (+)</h3>
+        </div>
+        <button type="button" onclick="closeModal('modalTransaksiKas')" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <form onsubmit="submitTransaksiKas(event)" class="p-4 sm:p-5 space-y-3.5">
+        <input type="hidden" id="inputJenisKas" value="MASUK">
+
+        <div class="grid grid-cols-2 gap-2 p-1 bg-slate-100 rounded-xl">
+          <button type="button" id="btnSwitchMasuk" onclick="setJenisModal('MASUK')" class="py-2 rounded-lg text-xs font-extrabold bg-emerald-600 text-white shadow transition">+ Kas Masuk</button>
+          <button type="button" id="btnSwitchKeluar" onclick="setJenisModal('KELUAR')" class="py-2 rounded-lg text-xs font-extrabold text-slate-600 transition">- Kas Keluar</button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Tanggal *</label>
+            <input type="date" id="inputTanggalKas" required class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs sm:text-sm font-bold">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">No. Bukti / Nota *</label>
+            <input type="text" id="inputRefKas" required placeholder="KM-001" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs sm:text-sm font-mono-code font-bold uppercase">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Kategori *</label>
+            <select id="inputKategoriKas" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-bold bg-white"></select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">PIC / Admin *</label>
+            <select id="inputPicKas" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-bold bg-white">
+              <option value="SUFYAN">SUFYAN</option>
+              <option value="HASFHI">HASFHI</option>
+              <option value="ADMIN">ADMIN</option>
+              <option value="MANAGER">MANAGER</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Nominal (Rp) *</label>
+          <div class="relative">
+            <span class="absolute left-3.5 top-2.5 text-xs font-extrabold text-slate-400">Rp</span>
+            <input type="number" id="inputNominalKas" min="1" step="any" required placeholder="0" oninput="updatePreviewNominal()" class="w-full rounded-xl border border-slate-300 pl-10 pr-4 py-2 text-base font-extrabold font-mono-code">
+          </div>
+          <p id="previewNominalText" class="text-[11px] font-bold text-emerald-600 mt-1">Rp 0</p>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Keterangan / Uraian Transaksi *</label>
+          <input type="text" id="inputKeteranganKas" required placeholder="Contoh: Pembayaran pakan / Biaya bongkar muat..." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs sm:text-sm font-semibold">
+        </div>
+
+        <div class="flex items-center space-x-2 pt-1">
+          <input type="checkbox" id="autoOpenNotaCheck" class="w-4 h-4 text-emerald-600 rounded border-slate-300" checked>
+          <label for="autoOpenNotaCheck" class="text-xs font-semibold text-slate-600 cursor-pointer">Langsung tampilkan Nota setelah disimpan</label>
+        </div>
+
+        <button type="submit" id="btnSubmitKas" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl text-xs sm:text-sm shadow-lg transition flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-floppy-disk"></i>
+          <span>Simpan Transaksi</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ========================================================= -->
+  <!-- MODAL 2: PENGATURAN SALDO AWAL MANUAL                     -->
+  <!-- ========================================================= -->
+  <div id="modalSaldoAwal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="w-7 h-7 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-sliders"></i></span>
+          <h3 class="font-bold text-xs sm:text-sm">Set Saldo Awal Manual</h3>
+        </div>
+        <button type="button" onclick="closeModal('modalSaldoAwal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <form onsubmit="submitSaldoAwalManual(event)" class="p-4 space-y-3.5">
+        <div class="bg-amber-50 border border-amber-200 text-amber-900 p-3 rounded-xl text-[11px] leading-relaxed">
+          Masukkan <b>Saldo Awal</b> kas Gudang SS K-07. Seluruh transaksi Masuk & Keluar akan otomatis dijumlahkan dari angka ini.
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Tanggal Saldo Awal *</label>
+          <input type="date" id="inputTglSaldoAwal" required class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-bold">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Nominal Saldo Awal (Rp) *</label>
+          <input type="number" id="inputNominalSaldoAwal" step="any" required placeholder="0" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-base font-extrabold font-mono-code">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Catatan Saldo Awal</label>
+          <input type="text" id="inputCatatanSaldoAwal" placeholder="Saldo kas bulan lalu / Modal awal..." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-semibold">
+        </div>
+
+        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl text-xs shadow transition">
+          Simpan Saldo Awal
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ========================================================= -->
+  <!-- MODAL 3: PILIHAN CETAK NOTA LAPORAN & UNDUH CSV           -->
+  <!-- ========================================================= -->
+  <div id="modalPilihCSV" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-print text-emerald-400 text-base"></i>
+          <h3 class="font-bold text-xs sm:text-sm">Cetak Laporan (Model Nota) & CSV</h3>
+        </div>
+        <button type="button" onclick="closeModal('modalPilihCSV')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-4 space-y-3">
+        <p class="text-xs text-slate-500">Pilih periode laporan Cash Flow Gudang SS K-07. Klik <b>Cetak / Print</b> untuk mencetak laporan model nota memanjang ke bawah, atau klik <b>CSV</b> untuk Excel:</p>
+
+        <!-- Baris 1: Harian -->
+        <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-calendar-day"></i></span>
+            <div>
+              <div class="text-xs font-extrabold text-slate-800">Laporan Harian</div>
+              <div class="text-[10px] text-slate-500">Sesuai filter tanggal harian</div>
+            </div>
+          </div>
+          <div class="flex space-x-1.5">
+            <button type="button" onclick="closeModal('modalPilihCSV'); bukaModalCetakLaporan('HARIAN', true);" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-print"></i><span>Print</span>
+            </button>
+            <button type="button" onclick="closeModal('modalPilihCSV'); exportCashFlowCSV('HARIAN');" class="bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-file-csv"></i><span>CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Baris 2: Mingguan -->
+        <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-calendar-week"></i></span>
+            <div>
+              <div class="text-xs font-extrabold text-slate-800">Laporan Mingguan</div>
+              <div class="text-[10px] text-slate-500">Transaksi 7 hari terakhir</div>
+            </div>
+          </div>
+          <div class="flex space-x-1.5">
+            <button type="button" onclick="closeModal('modalPilihCSV'); bukaModalCetakLaporan('MINGGUAN', true);" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-print"></i><span>Print</span>
+            </button>
+            <button type="button" onclick="closeModal('modalPilihCSV'); exportCashFlowCSV('MINGGUAN');" class="bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-file-csv"></i><span>CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Baris 3: Bulanan -->
+        <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-calendar-days"></i></span>
+            <div>
+              <div class="text-xs font-extrabold text-slate-800">Laporan Bulanan</div>
+              <div class="text-[10px] text-slate-500">Sesuai bulan & tahun terpilih</div>
+            </div>
+          </div>
+          <div class="flex space-x-1.5">
+            <button type="button" onclick="closeModal('modalPilihCSV'); bukaModalCetakLaporan('BULANAN', true);" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-print"></i><span>Print</span>
+            </button>
+            <button type="button" onclick="closeModal('modalPilihCSV'); exportCashFlowCSV('BULANAN');" class="bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-file-csv"></i><span>CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Baris 4: Semua Riwayat -->
+        <div class="bg-slate-900 text-white p-3 rounded-xl flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-database"></i></span>
+            <div>
+              <div class="text-xs font-extrabold">Semua Riwayat Kas</div>
+              <div class="text-[10px] text-slate-300">Rekap lengkap dari Saldo Awal</div>
+            </div>
+          </div>
+          <div class="flex space-x-1.5">
+            <button type="button" onclick="closeModal('modalPilihCSV'); bukaModalCetakLaporan('SEMUA', true);" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-print"></i><span>Print</span>
+            </button>
+            <button type="button" onclick="closeModal('modalPilihCSV'); exportCashFlowCSV('SEMUA');" class="bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold shadow flex items-center space-x-1">
+              <i class="fa-solid fa-file-csv"></i><span>CSV</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================= -->
+  <!-- MODAL 4: PRATINJAU NOTA SATUAN & LAPORAN MEMANJANG        -->
+  <!-- ========================================================= -->
+  <div id="modalNotaKas" class="fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-50 hidden items-center justify-center p-2 sm:p-4 overflow-y-auto">
+    <div id="modalNotaContainer" class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden my-auto">
+      <div class="bg-slate-900 text-white px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-receipt text-emerald-400"></i>
+          <h3 id="judulModalNota" class="font-bold text-xs sm:text-sm">Pratinjau Dokumen Kas</h3>
+        </div>
+        <button type="button" onclick="closeModal('modalNotaKas')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <!-- Area Dokumen yang Bisa Memanjang ke Bawah & Dicetak -->
+      <div class="p-3 sm:p-6 bg-slate-100 max-h-[75vh] overflow-y-auto overflow-x-auto custom-scrollbar">
+        <div id="areaCetakNota" class="bg-white text-slate-900 mx-auto rounded-xl shadow-sm"></div>
+      </div>
+
+      <div class="bg-slate-50 px-4 py-3 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
+        <button type="button" onclick="closeModal('modalNotaKas')" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold">Tutup</button>
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" id="btnModalExportCsv" onclick="exportCashFlowCSV(modePeriodeAktif)" class="hidden px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold shadow items-center space-x-1.5">
+            <i class="fa-solid fa-file-csv"></i><span>Unduh CSV</span>
+          </button>
+          <button type="button" onclick="unduhNotaGambarPNG()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold shadow flex items-center space-x-1.5">
+            <i class="fa-solid fa-image"></i><span>Unduh PNG</span>
+          </button>
+          <button type="button" onclick="cetakNotaWindow()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow flex items-center space-x-1.5">
+            <i class="fa-solid fa-print"></i><span>Cetak / Print PDF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================= -->
+  <!-- MODAL 5: KONEKSI CLOUD GOOGLE SHEETS (URL SCRIPT GS)      -->
+  <!-- ========================================================= -->
+  <div id="modalCloudSync" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-cloud text-emerald-400"></i>
+          <h3 class="font-bold text-xs sm:text-sm">Koneksi Google Sheets (Kode.gs)</h3>
+        </div>
+        <button type="button" onclick="closeModal('modalCloudSync')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="p-4 space-y-3.5 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 uppercase text-[11px] mb-1">URL Web App Google Apps Script</label>
+          <input type="url" id="inputGasUrl" placeholder="https://script.google.com/macros/s/.../exec" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs">
+          <p class="text-[10px] text-emerald-500 font-semibold mt-1">URL Google Apps Script Anda sudah terpasang otomatis.</p>
+        </div>
+        <div class="flex space-x-2 pt-1">
+          <button type="button" onclick="simpanKonfigurasiGas()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl shadow">Simpan & Sinkronkan</button>
+          <button type="button" onclick="resetSemuaDataKas()" class="bg-rose-600/20 hover:bg-rose-600 text-rose-500 hover:text-white font-bold px-3 py-2.5 rounded-xl transition">Reset Lokal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================= -->
+  <!-- FLOATING POPUP KALKULATOR CEPAT                           -->
+  <!-- ========================================================= -->
+  <div class="fixed bottom-5 right-5 z-40">
+    <button type="button" onclick="toggleCalc()" class="w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl flex items-center justify-center text-lg transition transform hover:scale-105 border-2 border-white/20" title="Kalkulator Kas">
+      <i class="fa-solid fa-calculator"></i>
+    </button>
+
+    <div id="calcPopup" class="hidden absolute bottom-16 right-0 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl w-64 p-3.5 text-white space-y-2.5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-1.5 text-xs font-bold text-emerald-400">
+        <span>Kalkulator SS K-07</span>
+        <button onclick="toggleCalc()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-right">
+        <div id="calcDisplay" class="text-lg font-mono-code font-extrabold text-amber-300 truncate">0</div>
+      </div>
+      <div class="grid grid-cols-4 gap-1.5 text-xs font-bold">
+        <button type="button" onclick="cClear()" class="bg-rose-600/30 text-rose-300 py-2 rounded-lg">C</button>
+        <button type="button" onclick="cBack()" class="bg-slate-800 py-2 rounded-lg">⌫</button>
+        <button type="button" onclick="cIn('/')" class="bg-slate-800 text-emerald-400 py-2 rounded-lg">÷</button>
+        <button type="button" onclick="cIn('*')" class="bg-slate-800 text-emerald-400 py-2 rounded-lg">×</button>
+        <button type="button" onclick="cIn('7')" class="bg-slate-800 py-2 rounded-lg">7</button>
+        <button type="button" onclick="cIn('8')" class="bg-slate-800 py-2 rounded-lg">8</button>
+        <button type="button" onclick="cIn('9')" class="bg-slate-800 py-2 rounded-lg">9</button>
+        <button type="button" onclick="cIn('-')" class="bg-slate-800 text-emerald-400 py-2 rounded-lg">-</button>
+        <button type="button" onclick="cIn('4')" class="bg-slate-800 py-2 rounded-lg">4</button>
+        <button type="button" onclick="cIn('5')" class="bg-slate-800 py-2 rounded-lg">5</button>
+        <button type="button" onclick="cIn('6')" class="bg-slate-800 py-2 rounded-lg">6</button>
+        <button type="button" onclick="cIn('+')" class="bg-slate-800 text-emerald-400 py-2 rounded-lg">+</button>
+        <button type="button" onclick="cIn('1')" class="bg-slate-800 py-2 rounded-lg">1</button>
+        <button type="button" onclick="cIn('2')" class="bg-slate-800 py-2 rounded-lg">2</button>
+        <button type="button" onclick="cIn('3')" class="bg-slate-800 py-2 rounded-lg">3</button>
+        <button type="button" onclick="cEq()" class="row-span-2 bg-emerald-600 text-white py-2 rounded-lg">=</button>
+        <button type="button" onclick="cIn('0')" class="col-span-2 bg-slate-800 py-2 rounded-lg">0</button>
+        <button type="button" onclick="cIn('000')" class="bg-slate-800 text-amber-300 py-2 rounded-lg">000</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================= -->
+  <!-- SCRIPT UTAMA SISTEM CASH FLOW OTOMATIS                    -->
+  <!-- ========================================================= -->
+  <script>
+    const STORAGE_KEY_SESSION    = 'SSK07_AUTH_SESSION';
+    const STORAGE_KEY_SALDO_AWAL = 'SSK07_SALDO_AWAL';
+    const STORAGE_KEY_TRANSAKSI  = 'SSK07_TRANSAKSI_KAS';
+    const STORAGE_KEY_GAS_URL    = 'SSK07_GAS_URL';
+
+    // Link Google Apps Script Anda sudah dipasang langsung sebagai default
+    const DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbzJMx3yBkYaIDAVWs5zwEo7t8pFI_As-ihAuJ704j3KLUCz7-FKZLEkUK9OCQGNq3hv/exec";
+
+    // Daftar Akun Login (user: admin | pass: adminss)
+    const VALID_ACCOUNTS = [
+      { user: "admin", pass: "adminss", role: "ADMIN" }
+    ];
+
+    const KATEGORI_MASUK = [
+      "Penjualan Pakan / Konsentrat",
+      "Pelunasan Invoice / Piutang",
+      "Setoran Modal / Kas Pusat",
+      "Penerimaan Lain-lain"
+    ];
+
+    const KATEGORI_KELUAR = [
+      "Upah Bongkar Muat (Kuli)",
+      "BBM & Operasional Armada",
+      "Pembelian Bahan Baku / Karung",
+      "Biaya Listrik, Air & Gudang",
+      "Konsumsi & Operasional Shift",
+      "Pengeluaran Lain-lain"
+    ];
+
+    let currentSession = JSON.parse(localStorage.getItem(STORAGE_KEY_SESSION)) || null;
+    let dataSaldoAwal = JSON.parse(localStorage.getItem(STORAGE_KEY_SALDO_AWAL)) || {
+      nominal: 0,
+      tanggal: new Date().toISOString().split('T')[0],
+      catatan: "Saldo Awal Kas Gudang SS K-07"
+    };
+    let listTransaksiKas = JSON.parse(localStorage.getItem(STORAGE_KEY_TRANSAKSI)) || [];
+    let gasUrl = localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GAS_URL;
+    // Pastikan jika localStorage lama kosong, otomatis pakai DEFAULT_GAS_URL baru
+    if (!gasUrl) {
+      gasUrl = DEFAULT_GAS_URL;
+      localStorage.setItem(STORAGE_KEY_GAS_URL, gasUrl);
+    }
+
+    let modePeriodeAktif = 'SEMUA'; // 'HARIAN' | 'MINGGUAN' | 'BULANAN' | 'SEMUA'
+    let notaAktifObj = null;
+    let tipeDokumenCetak = 'NOTA_SATUAN'; // 'NOTA_SATUAN' | 'LAPORAN_PANJANG'
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      startClock();
+      setDefaultDates();
+      checkAuthSession();
+      document.getElementById('inputGasUrl').value = gasUrl;
+      renderSeluruhAplikasi();
+      if (gasUrl && currentSession) {
+        syncFromGoogleSheets(true);
+      }
+    });
+
+    /* ========================================================= */
+    /* 1. SISTEM LOGIN & KEAMANAN (admin / adminss)              */
+    /* ========================================================= */
+    function togglePassVisibility() {
+      const passInput = document.getElementById('loginPass');
+      const icon = document.getElementById('eyeIcon');
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        icon.className = 'fa-solid fa-eye-slash text-xs';
+      } else {
+        passInput.type = 'password';
+        icon.className = 'fa-solid fa-eye text-xs';
+      }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('loginUser').value.trim().toLowerCase();
+      const pass = document.getElementById('loginPass').value.trim();
+      const errBox = document.getElementById('loginError');
+
+      const matched = VALID_ACCOUNTS.find(a => a.user === user && a.pass === pass);
+      if (matched) {
+        errBox.classList.add('hidden');
+        currentSession = { user: matched.user, role: matched.role, loginAt: Date.now() };
+        localStorage.setItem(STORAGE_KEY_SESSION, JSON.stringify(currentSession));
+        document.getElementById('loginUser').value = '';
+        document.getElementById('loginPass').value = '';
+        checkAuthSession();
+        showToast("Login Berhasil! Selamat datang di Cash Flow SS K-07.");
+        if (gasUrl) syncFromGoogleSheets(true);
+      } else {
+        errBox.classList.remove('hidden');
+      }
+    }
+
+    function handleLogout() {
+      if (confirm("Keluar dari Sistem Cash Flow Gudang SS K-07?")) {
+        localStorage.removeItem(STORAGE_KEY_SESSION);
+        currentSession = null;
+        checkAuthSession();
+      }
+    }
+
+    function checkAuthSession() {
+      const loginScreen = document.getElementById('loginScreen');
+      if (!currentSession) {
+        loginScreen.classList.remove('hidden');
+      } else {
+        loginScreen.classList.add('hidden');
+      }
+    }
+
+    /* ========================================================= */
+    /* 2. JAM LIVE, TEMA & TANGGAL DEFAULT                       */
+    /* ========================================================= */
+    function setDefaultDates() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const today = `${yyyy}-${mm}-${dd}`;
+
+      document.getElementById('inputTanggalKas').value = today;
+      document.getElementById('filterTanggalHarian').value = today;
+      document.getElementById('filterBulan').value = mm;
+      document.getElementById('filterTahun').value = String(yyyy);
+
+      document.getElementById('inputTglSaldoAwal').value = dataSaldoAwal.tanggal || today;
+      document.getElementById('inputNominalSaldoAwal').value = dataSaldoAwal.nominal || 0;
+      document.getElementById('inputCatatanSaldoAwal').value = dataSaldoAwal.catatan || "Saldo Awal Kas Gudang SS K-07";
+    }
+
+    function setTodayFilter() {
+      const now = new Date();
+      const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+      document.getElementById('filterTanggalHarian').value = today;
+      renderTabelKas();
+    }
+
+    function startClock() {
+      const update = () => {
+        const now = new Date();
+        const str = now.toLocaleString('id-ID', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const el = document.getElementById('liveClockHeader');
+        if (el) el.innerText = str + " WIB";
+      };
+      update();
+      setInterval(update, 1000);
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem('SSK07_DARK_MODE');
+      const isDark = saved === null ? true : saved === 'true';
+      document.body.classList.toggle('dark-mode', isDark);
+      document.getElementById('themeIcon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+
+    function toggleDarkMode() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('SSK07_DARK_MODE', isDark);
+      document.getElementById('themeIcon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      showToast(isDark ? "Mode Gelap Aktif" : "Mode Terang Aktif");
+    }
+
+    function showCenterLoading(teks = "Memproses...") {
+      const el = document.getElementById('centerLoadingOverlay');
+      const txt = document.getElementById('centerLoadingText');
+      if (txt) txt.innerText = teks;
+      if (el) { el.classList.remove('hidden'); el.classList.add('flex'); }
+    }
+
+    function hideCenterLoading() {
+      const el = document.getElementById('centerLoadingOverlay');
+      if (el) { el.classList.add('hidden'); el.classList.remove('flex'); }
+    }
+
+    /* ========================================================= */
+    /* 3. PERHITUNGAN SALDO BERJALAN (RUNNING BALANCE) OTOMATIS  */
+    /* ========================================================= */
+    function normalizeDateStr(rawDate) {
+      if (!rawDate) return '';
+      const str = String(rawDate).trim();
+      if (/^\d{4}-\d{2}-\d{2}$/.test(str)) return str;
+      const parsed = new Date(str);
+      if (!isNaN(parsed.getTime())) {
+        return `${parsed.getFullYear()}-${String(parsed.getMonth() + 1).padStart(2, '0')}-${String(parsed.getDate()).padStart(2, '0')}`;
+      }
+      return str.split('T')[0];
+    }
+
+    function getTransaksiDenganRunningSaldo() {
+      const sortedAsc = [...listTransaksiKas].sort((a, b) => {
+        const tglA = normalizeDateStr(a.tanggal);
+        const tglB = normalizeDateStr(b.tanggal);
+        if (tglA !== tglB) return tglA.localeCompare(tglB);
+        return (a.createdAt || 0) - (b.createdAt || 0);
+      });
+
+      let runningSaldo = Number(dataSaldoAwal.nominal || 0);
+      return sortedAsc.map(item => {
+        const saldoSebelum = runningSaldo;
+        const nom = Number(item.nominal || 0);
+        if (item.jenis === 'MASUK') {
+          runningSaldo += nom;
+        } else {
+          runningSaldo -= nom;
+        }
+        return {
+          ...item,
+          tanggal: normalizeDateStr(item.tanggal) || item.tanggal,
+          saldoSebelum,
+          saldoSetelah: runningSaldo
+        };
+      });
+    }
+
+    function renderSeluruhAplikasi() {
+      const computedList = getTransaksiDenganRunningSaldo();
+
+      const saldoAwalVal = Number(dataSaldoAwal.nominal || 0);
+      const listMasuk = computedList.filter(t => t.jenis === 'MASUK');
+      const listKeluar = computedList.filter(t => t.jenis === 'KELUAR');
+
+      const totalMasuk = listMasuk.reduce((acc, cur) => acc + Number(cur.nominal || 0), 0);
+      const totalKeluar = listKeluar.reduce((acc, cur) => acc + Number(cur.nominal || 0), 0);
+      const saldoAkhir = saldoAwalVal + totalMasuk - totalKeluar;
+
+      document.getElementById('kpiSaldoAkhir').innerText = formatRp(saldoAkhir);
+      document.getElementById('kpiSaldoAwal').innerText = formatRp(saldoAwalVal);
+      document.getElementById('kpiKetSaldoAwal').innerText = dataSaldoAwal.catatan || `Per ${dataSaldoAwal.tanggal}`;
+
+      document.getElementById('kpiTotalMasuk').innerText = "+" + formatRp(totalMasuk);
+      document.getElementById('kpiCountMasuk').innerText = `${listMasuk.length} Transaksi Masuk`;
+
+      document.getElementById('kpiTotalKeluar').innerText = "-" + formatRp(totalKeluar);
+      document.getElementById('kpiCountKeluar').innerText = `${listKeluar.length} Transaksi Keluar`;
+
+      renderTabelKas(computedList);
+    }
+
+    /* ========================================================= */
+    /* 4. FILTER PERIODE (HARIAN, MINGGUAN, BULANAN, SEMUA)      */
+    /* ========================================================= */
+    function setModePeriode(mode) {
+      modePeriodeAktif = mode;
+      const baseBtn = "px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-100 text-slate-700 border border-slate-300 transition";
+      document.getElementById('tabPeriodeHarian').className   = mode === 'HARIAN'   ? `sub-tab-active ${baseBtn}` : baseBtn;
+      document.getElementById('tabPeriodeMingguan').className = mode === 'MINGGUAN' ? `sub-tab-active ${baseBtn}` : baseBtn;
+      document.getElementById('tabPeriodeBulanan').className  = mode === 'BULANAN'  ? `sub-tab-active ${baseBtn}` : baseBtn;
+      document.getElementById('tabPeriodeSemua').className    = mode === 'SEMUA'    ? `sub-tab-active ${baseBtn}` : baseBtn;
+
+      document.getElementById('boxFilterHarian').classList.toggle('hidden', mode !== 'HARIAN');
+      document.getElementById('boxFilterMingguan').classList.toggle('hidden', mode !== 'MINGGUAN');
+      document.getElementById('boxFilterBulanan').classList.toggle('hidden', mode !== 'BULANAN');
+      document.getElementById('boxFilterSemua').classList.toggle('hidden', mode !== 'SEMUA');
+
+      const labelMap = { 'HARIAN': 'Harian', 'MINGGUAN': 'Mingguan', 'BULANAN': 'Bulanan', 'SEMUA': 'Semua' };
+      document.getElementById('btnQuickPrintText').innerText = `Cetak Laporan (${labelMap[mode]})`;
+
+      renderTabelKas();
+    }
+
+    function filterBerdasarkanMode(listData, modeTarget) {
+      const mode = modeTarget || modePeriodeAktif;
+      const jenis = document.getElementById('filterJenisKas').value;
+      const keyword = (document.getElementById('searchKas').value || '').toLowerCase();
+      const now = new Date();
+
+      return listData.filter(item => {
+        const tglStr = normalizeDateStr(item.tanggal);
+        let matchPeriode = true;
+
+        if (mode === 'HARIAN') {
+          const tglPilih = document.getElementById('filterTanggalHarian').value;
+          matchPeriode = !tglPilih || tglStr === tglPilih;
+        } else if (mode === 'MINGGUAN') {
+          const rentang = document.getElementById('filterRentangMinggu').value;
+          if (tglStr) {
+            const itemDate = new Date(tglStr + "T00:00:00");
+            const diffDays = (now - itemDate) / (1000 * 60 * 60 * 24);
+            if (rentang === '7') matchPeriode = diffDays >= -1 && diffDays <= 7;
+            else if (rentang === '14') matchPeriode = diffDays >= -1 && diffDays <= 14;
+            else if (rentang === 'MINGGU_INI') {
+              const dayOfWeek = now.getDay() || 7;
+              const startOfWeek = new Date(now);
+              startOfWeek.setDate(now.getDate() - dayOfWeek + 1);
+              startOfWeek.setHours(0, 0, 0, 0);
+              matchPeriode = itemDate >= startOfWeek;
+            }
+          }
+        } else if (mode === 'BULANAN') {
+          const bln = document.getElementById('filterBulan').value;
+          const thn = document.getElementById('filterTahun').value;
+          matchPeriode = tglStr.startsWith(`${thn}-${bln}`);
+        }
+
+        const matchJenis = jenis === 'SEMUA' || item.jenis === jenis;
+        const matchKey = !keyword ||
+          String(item.ref || '').toLowerCase().includes(keyword) ||
+          String(item.kategori || '').toLowerCase().includes(keyword) ||
+          String(item.keterangan || '').toLowerCase().includes(keyword) ||
+          String(item.pic || '').toLowerCase().includes(keyword);
+
+        return matchPeriode && matchJenis && matchKey;
+      });
+    }
+
+    function renderTabelKas(computedList) {
+      const allComputed = computedList || getTransaksiDenganRunningSaldo();
+      const tbody = document.getElementById('tbodyKas');
+      const tfoot = document.getElementById('tfootKas');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      // Baris Saldo Awal
+      tbody.innerHTML += `
+        <tr class="bg-amber-500/10 border-b border-amber-500/20">
+          <td class="py-2.5 px-3 font-mono-code font-bold text-amber-500 whitespace-nowrap">${dataSaldoAwal.tanggal || '-'}</td>
+          <td class="py-2.5 px-3"><span class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded text-[10px] font-extrabold uppercase">SALDO AWAL</span></td>
+          <td class="py-2.5 px-3 font-bold text-slate-700" colspan="2">${dataSaldoAwal.catatan || 'Saldo Awal Kas Gudang SS K-07'}</td>
+          <td class="py-2.5 px-3 text-right font-mono-code text-slate-400">-</td>
+          <td class="py-2.5 px-3 text-right font-mono-code text-slate-400">-</td>
+          <td class="py-2.5 px-3 text-right font-mono-code font-extrabold text-amber-500 whitespace-nowrap">${formatRp(dataSaldoAwal.nominal)}</td>
+          <td class="py-2.5 px-3 text-center">
+            <button onclick="openModal('modalSaldoAwal')" class="bg-amber-500/20 hover:bg-amber-500 text-amber-400 hover:text-slate-950 px-2.5 py-1 rounded-lg text-[10px] font-extrabold transition" title="Ubah Saldo Awal">
+              <i class="fa-solid fa-pen mr-1"></i>Ubah
+            </button>
+          </td>
+        </tr>
+      `;
+
+      const filtered = filterBerdasarkanMode(allComputed, modePeriodeAktif);
+
+      if (filtered.length === 0) {
+        tbody.innerHTML += `
+          <tr>
+            <td colspan="8" class="text-center py-8 text-slate-400 space-y-2">
+              <div>Tidak ada transaksi kas pada filter periode <b>${modePeriodeAktif}</b> ini.</div>
+              ${modePeriodeAktif !== 'SEMUA' ? `<button onclick="setModePeriode('SEMUA')" class="mt-1 bg-slate-200 hover:bg-slate-300 text-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold">Tampilkan Semua Data</button>` : ''}
+            </td>
+          </tr>`;
+        tfoot.innerHTML = '';
+        return;
+      }
+
+      let sumMasukFilter = 0;
+      let sumKeluarFilter = 0;
+
+      filtered.forEach(item => {
+        const isMasuk = item.jenis === 'MASUK';
+        if (isMasuk) sumMasukFilter += Number(item.nominal || 0);
+        else sumKeluarFilter += Number(item.nominal || 0);
+
+        const badge = isMasuk
+          ? `<span class="bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-extrabold">MASUK</span>`
+          : `<span class="bg-rose-100 text-rose-800 px-1.5 py-0.5 rounded text-[10px] font-extrabold">KELUAR</span>`;
+
+        tbody.innerHTML += `
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-2.5 px-3 whitespace-nowrap">
+              <div class="font-bold text-slate-800">${item.tanggal}</div>
+              <div class="text-[10px] text-slate-400 font-mono-code">${item.jam || ''}</div>
+            </td>
+            <td class="py-2.5 px-3 whitespace-nowrap">
+              <div class="flex items-center space-x-1.5">${badge}<span class="font-mono-code font-bold text-slate-800">${item.ref}</span></div>
+              <div class="text-[10px] text-slate-500 font-semibold mt-0.5">${item.kategori}</div>
+            </td>
+            <td class="py-2.5 px-3 font-semibold text-slate-800">${item.keterangan}</td>
+            <td class="py-2.5 px-3 text-center whitespace-nowrap">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">${item.pic || 'ADMIN'}</span>
+            </td>
+            <td class="py-2.5 px-3 text-right font-mono-code font-extrabold text-emerald-600 whitespace-nowrap">
+              ${isMasuk ? '+' + formatRp(item.nominal) : '-'}
+            </td>
+            <td class="py-2.5 px-3 text-right font-mono-code font-extrabold text-rose-600 whitespace-nowrap">
+              ${!isMasuk ? '-' + formatRp(item.nominal) : '-'}
+            </td>
+            <td class="py-2.5 px-3 text-right font-mono-code font-extrabold text-slate-900 whitespace-nowrap">
+              ${formatRp(item.saldoSetelah)}
+            </td>
+            <td class="py-2.5 px-3 text-center whitespace-nowrap">
+              <div class="inline-flex items-center space-x-1">
+                <button onclick="bukaModalNota('${item.id}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1.5 rounded-xl text-[11px] font-extrabold shadow-sm transition inline-flex items-center space-x-1" title="Lihat & Unduh Nota">
+                  <i class="fa-solid fa-receipt"></i><span>Nota</span>
+                </button>
+                <button onclick="hapusTransaksiKas('${item.id}')" class="bg-rose-500/15 hover:bg-rose-600 text-rose-400 hover:text-white px-2 py-1.5 rounded-xl text-[11px] transition" title="Hapus Transaksi">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+
+      const saldoTerakhir = filtered[filtered.length - 1].saldoSetelah;
+      tfoot.innerHTML = `
+        <tr>
+          <td colspan="4" class="py-3 px-3 text-right uppercase text-[11px] text-slate-500">Total Mutasi (${modePeriodeAktif}) & Saldo Akhir :</td>
+          <td class="py-3 px-3 text-right font-mono-code text-emerald-600 whitespace-nowrap">+${formatRp(sumMasukFilter)}</td>
+          <td class="py-3 px-3 text-right font-mono-code text-rose-600 whitespace-nowrap">-${formatRp(sumKeluarFilter)}</td>
+          <td class="py-3 px-3 text-right font-mono-code text-amber-500 text-sm whitespace-nowrap">${formatRp(saldoTerakhir)}</td>
+          <td></td>
+        </tr>
+      `;
+    }
+
+    /* ========================================================= */
+    /* 5A. CETAK NOTA TRANSAKSI SATUAN                           */
+    /* ========================================================= */
+    function bukaModalNota(idTransaksi) {
+      const allComputed = getTransaksiDenganRunningSaldo();
+      const trx = allComputed.find(t => t.id === idTransaksi);
+      if (!trx) return;
+      notaAktifObj = trx;
+      tipeDokumenCetak = 'NOTA_SATUAN';
+
+      document.getElementById('btnModalExportCsv').classList.add('hidden');
+      document.getElementById('btnModalExportCsv').classList.remove('flex');
+
+      const isMasuk = trx.jenis === 'MASUK';
+      const judulBukti = isMasuk ? 'BUKTI KAS MASUK (DEBET)' : 'BUKTI KAS KELUAR (KREDIT)';
+      const warnaUtama = isMasuk ? '#059669' : '#e11d48';
+
+      const qrData = [
+        "CASH FLOW GUDANG SS K-07",
+        "CV. YUDISTIRA CATTLE AND FARM",
+        "No. Nota: " + trx.ref,
+        "Jenis: KAS " + trx.jenis,
+        "Tanggal: " + trx.tanggal + " (" + (trx.jam || "-") + ")",
+        "Kategori: " + trx.kategori,
+        "Nominal: " + formatRp(trx.nominal),
+        "Saldo Akhir: " + formatRp(trx.saldoSetelah),
+        "PIC: " + (trx.pic || "ADMIN")
+      ].join("\n");
+
+      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=110x110&margin=2&data=" + encodeURIComponent(qrData);
+
+      document.getElementById('judulModalNota').innerText = `Nota ${trx.ref} — ${trx.keterangan}`;
+
+      document.getElementById('areaCetakNota').innerHTML = `
+        <div id="kartuNotaTarget" style="width: 100%; max-width: 540px; margin: 0 auto; font-family: 'Inter', Arial, sans-serif; color: #0f172a; background: #ffffff; border: 2px solid #0f172a; padding: 22px; border-radius: 10px; box-sizing: border-box;">
+          
+          <!-- KOP NOTA -->
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 3px double #0f172a; padding-bottom: 12px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <img src="cv.png" alt="Logo" style="width: 46px; height: 46px; object-fit: contain;" onerror="this.style.display='none'">
+              <div>
+                <div style="font-size: 14px; font-weight: 800; color: #0f172a; letter-spacing: 0.3px;">CASH FLOW GUDANG SS K-07</div>
+                <div style="font-size: 11px; font-weight: 700; color: #059669;">CV. YUDISTIRA CATTLE AND FARM</div>
+                <div style="font-size: 9px; color: #64748b;">Bukti Transaksi Kas Resmi</div>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="background: ${warnaUtama}; color: #ffffff; font-weight: 800; font-size: 10px; padding: 4px 8px; border-radius: 4px; display: inline-block;">${judulBukti}</div>
+              <div style="font-size: 12px; font-weight: 800; font-family: monospace; margin-top: 4px;">${trx.ref}</div>
+            </div>
+          </div>
+
+          <!-- DETAIL TRANSAKSI -->
+          <table style="width: 100%; font-size: 11px; border-collapse: collapse; margin-bottom: 14px;">
+            <tr>
+              <td style="padding: 4px 0; color: #475569; width: 32%;"><b>Tanggal & Waktu</b></td>
+              <td style="padding: 4px 0; font-weight: 700;">: ${trx.tanggal} ${trx.jam ? '• ' + trx.jam : ''}</td>
+            </tr>
+            <tr>
+              <td style="padding: 4px 0; color: #475569;"><b>Kategori Kas</b></td>
+              <td style="padding: 4px 0; font-weight: 700;">: ${trx.kategori}</td>
+            </tr>
+            <tr>
+              <td style="padding: 4px 0; color: #475569;"><b>PIC / Petugas</b></td>
+              <td style="padding: 4px 0; font-weight: 700;">: ${trx.pic || 'ADMIN'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 4px 0; color: #475569; vertical-align: top;"><b>Uraian / Keterangan</b></td>
+              <td style="padding: 4px 0; font-weight: 700;">: ${trx.keterangan}</td>
+            </tr>
+          </table>
+
+          <!-- KOTAK NOMINAL UTAMA -->
+          <div style="background: #f8fafc; border: 1.5px dashed #94a3b8; border-radius: 8px; padding: 12px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 11px; font-weight: 800; color: #334155; text-transform: uppercase;">Nominal Kas ${trx.jenis} :</span>
+              <span style="font-size: 18px; font-weight: 800; font-family: monospace; color: ${warnaUtama};">${isMasuk ? '+' : '-'}${formatRp(trx.nominal)}</span>
+            </div>
+            <div style="border-top: 1px solid #e2e8f0; margin-top: 8px; padding-top: 6px; display: flex; justify-content: space-between; font-size: 10px; color: #64748b;">
+              <span>Saldo Sebelumnya: <b>${formatRp(trx.saldoSebelum)}</b></span>
+              <span>Saldo Akhir: <b style="color: #0f172a;">${formatRp(trx.saldoSetelah)}</b></span>
+            </div>
+          </div>
+
+          <!-- BARCODE, QR & TANDA TANGAN -->
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <img src="${qrUrl}" crossorigin="anonymous" alt="QR" style="width: 64px; height: 64px; border: 1px solid #cbd5e1; padding: 2px; border-radius: 4px;">
+              <div>
+                <svg id="barcodeNotaKas"></svg>
+                <div style="font-size: 8px; color: #64748b;">Verifikasi Kas SS K-07</div>
+              </div>
+            </div>
+            <div style="text-align: center; font-size: 10px; min-width: 130px;">
+              <div>Admin / Kasir Gudang,</div>
+              <div style="height: 36px;"></div>
+              <div style="font-weight: 800; border-top: 1px solid #0f172a; padding-top: 2px;">( ${trx.pic || 'ADMIN'} )</div>
+            </div>
+          </div>
+
+        </div>
+      `;
+
+      openModal('modalNotaKas');
+
+      setTimeout(() => {
+        try {
+          if (window.JsBarcode) {
+            JsBarcode("#barcodeNotaKas", String(trx.ref || "SSK07"), {
+              format: "CODE128",
+              width: 1.1,
+              height: 28,
+              displayValue: true,
+              fontSize: 9,
+              margin: 0
+            });
+          }
+        } catch (e) {}
+      }, 60);
+    }
+
+    /* ========================================================= */
+    /* 5B. CETAK LAPORAN MODEL NOTA MEMANJANG KE BAWAH           */
+    /* ========================================================= */
+    function bukaModalCetakLaporan(periodePilihan, autoTriggerPrint = false) {
+      const targetMode = periodePilihan || modePeriodeAktif;
+      setModePeriode(targetMode);
+
+      const computedList = getTransaksiDenganRunningSaldo();
+      const filtered = filterBerdasarkanMode(computedList, targetMode);
+      tipeDokumenCetak = 'LAPORAN_PANJANG';
+
+      const btnCsvModal = document.getElementById('btnModalExportCsv');
+      btnCsvModal.classList.remove('hidden');
+      btnCsvModal.classList.add('flex');
+
+      const saldoAwalVal = Number(dataSaldoAwal.nominal || 0);
+      const totalMasuk = filtered.filter(t => t.jenis === 'MASUK').reduce((a, b) => a + Number(b.nominal || 0), 0);
+      const totalKeluar = filtered.filter(t => t.jenis === 'KELUAR').reduce((a, b) => a + Number(b.nominal || 0), 0);
+      const saldoAkhir = filtered.length > 0 ? filtered[filtered.length - 1].saldoSetelah : saldoAwalVal;
+
+      let ketPeriode = "SEMUA RIWAYAT TRANSAKSI";
+      if (targetMode === 'HARIAN') {
+        ketPeriode = "LAPORAN HARIAN (" + (document.getElementById('filterTanggalHarian').value || "Hari Ini") + ")";
+      } else if (targetMode === 'MINGGUAN') {
+        ketPeriode = "LAPORAN MINGGUAN (7 HARI TERAKHIR)";
+      } else if (targetMode === 'BULANAN') {
+        ketPeriode = "LAPORAN BULANAN (PERIODE " + document.getElementById('filterBulan').value + "/" + document.getElementById('filterTahun').value + ")";
+      }
+
+      const kodeLap = `LAP-${targetMode}-${new Date().toISOString().split('T')[0].replace(/-/g, '')}`;
+      notaAktifObj = { ref: kodeLap };
+
+      const qrData = [
+        "LAPORAN CASH FLOW GUDANG SS K-07",
+        "CV. YUDISTIRA CATTLE AND FARM",
+        "Periode: " + ketPeriode,
+        "Saldo Awal: " + formatRp(saldoAwalVal),
+        "Total Masuk: +" + formatRp(totalMasuk),
+        "Total Keluar: -" + formatRp(totalKeluar),
+        "Saldo Akhir: " + formatRp(saldoAkhir)
+      ].join("\n");
+
+      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=110x110&margin=2&data=" + encodeURIComponent(qrData);
+
+      // Susun baris-baris tabel memanjang ke bawah sesuai jumlah transaksi
+      let rowsHtml = `
+        <tr style="background: #fffbeb; border-bottom: 1px solid #cbd5e1;">
+          <td style="padding: 7px 6px; text-align: center; font-weight: 700;">0</td>
+          <td style="padding: 7px 6px; font-family: monospace; white-space: nowrap;">${dataSaldoAwal.tanggal || '-'}</td>
+          <td style="padding: 7px 6px; font-family: monospace; font-weight: 700;">SALDO-AWAL</td>
+          <td style="padding: 7px 6px; font-weight: 700;" colspan="2">${dataSaldoAwal.catatan || 'Saldo Awal Kas Gudang SS K-07'}</td>
+          <td style="padding: 7px 6px; text-align: right; color: #94a3b8;">-</td>
+          <td style="padding: 7px 6px; text-align: right; color: #94a3b8;">-</td>
+          <td style="padding: 7px 6px; text-align: right; font-family: monospace; font-weight: 800; color: #d97706;">${formatRp(saldoAwalVal)}</td>
+        </tr>
+      `;
+
+      filtered.forEach((item, idx) => {
+        const isMasuk = item.jenis === 'MASUK';
+        rowsHtml += `
+          <tr style="border-bottom: 1px solid #e2e8f0; page-break-inside: avoid;">
+            <td style="padding: 7px 6px; text-align: center; color: #64748b;">${idx + 1}</td>
+            <td style="padding: 7px 6px; white-space: nowrap;">
+              <div style="font-weight: 700;">${item.tanggal}</div>
+              <div style="font-size: 9px; color: #64748b; font-family: monospace;">${item.jam || ''}</div>
+            </td>
+            <td style="padding: 7px 6px; white-space: nowrap;">
+              <div style="font-family: monospace; font-weight: 700;">${item.ref}</div>
+              <div style="font-size: 9px; color: #475569;">${item.kategori}</div>
+            </td>
+            <td style="padding: 7px 6px; font-weight: 600;">${item.keterangan}</td>
+            <td style="padding: 7px 6px; text-align: center; font-weight: 700; font-size: 10px;">${item.pic || 'ADMIN'}</td>
+            <td style="padding: 7px 6px; text-align: right; font-family: monospace; font-weight: 700; color: #059669; white-space: nowrap;">
+              ${isMasuk ? '+' + formatRp(item.nominal) : '-'}
+            </td>
+            <td style="padding: 7px 6px; text-align: right; font-family: monospace; font-weight: 700; color: #e11d48; white-space: nowrap;">
+              ${!isMasuk ? '-' + formatRp(item.nominal) : '-'}
+            </td>
+            <td style="padding: 7px 6px; text-align: right; font-family: monospace; font-weight: 800; color: #0f172a; white-space: nowrap;">
+              ${formatRp(item.saldoSetelah)}
+            </td>
+          </tr>
+        `;
+      });
+
+      document.getElementById('judulModalNota').innerText = `Nota Laporan Kas (${targetMode})`;
+
+      document.getElementById('areaCetakNota').innerHTML = `
+        <div id="kartuNotaTarget" style="width: 100%; max-width: 760px; margin: 0 auto; font-family: 'Inter', Arial, sans-serif; color: #0f172a; background: #ffffff; border: 2px solid #0f172a; padding: 22px; border-radius: 10px; box-sizing: border-box;">
+          
+          <!-- KOP NOTA LAPORAN -->
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 3px double #0f172a; padding-bottom: 12px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="cv.png" alt="Logo" style="width: 50px; height: 50px; object-fit: contain;" onerror="this.style.display='none'">
+              <div>
+                <div style="font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: 0.4px;">CASH FLOW GUDANG SS K-07</div>
+                <div style="font-size: 12px; font-weight: 800; color: #059669;">CV. YUDISTIRA CATTLE AND FARM</div>
+                <div style="font-size: 10px; color: #64748b;">Waktu Cetak: ${new Date().toLocaleString('id-ID')} WIB</div>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="background: #0f172a; color: #ffffff; font-weight: 800; font-size: 10px; padding: 5px 10px; border-radius: 4px; display: inline-block;">${ketPeriode}</div>
+              <div style="font-size: 11px; font-weight: 800; font-family: monospace; margin-top: 5px;">No: ${kodeLap}</div>
+            </div>
+          </div>
+
+          <!-- KOTAK RINGKASAN SALDO MODEL NOTA -->
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; background: #f8fafc; border: 1.5px dashed #94a3b8; border-radius: 8px; padding: 10px; margin-bottom: 14px; font-size: 11px;">
+            <div>
+              <div style="font-size: 9px; font-weight: 700; color: #64748b; text-transform: uppercase;">Saldo Awal</div>
+              <div style="font-weight: 800; font-family: monospace; color: #d97706; margin-top: 2px;">${formatRp(saldoAwalVal)}</div>
+            </div>
+            <div>
+              <div style="font-size: 9px; font-weight: 700; color: #64748b; text-transform: uppercase;">Total Masuk (+)</div>
+              <div style="font-weight: 800; font-family: monospace; color: #059669; margin-top: 2px;">+${formatRp(totalMasuk)}</div>
+            </div>
+            <div>
+              <div style="font-size: 9px; font-weight: 700; color: #64748b; text-transform: uppercase;">Total Keluar (-)</div>
+              <div style="font-weight: 800; font-family: monospace; color: #e11d48; margin-top: 2px;">-${formatRp(totalKeluar)}</div>
+            </div>
+            <div style="background: #0f172a; color: #ffffff; padding: 4px 8px; border-radius: 6px;">
+              <div style="font-size: 9px; font-weight: 700; color: #cbd5e1; text-transform: uppercase;">Saldo Akhir</div>
+              <div style="font-weight: 800; font-family: monospace; color: #fbbf24; margin-top: 2px;">${formatRp(saldoAkhir)}</div>
+            </div>
+          </div>
+
+          <!-- TABEL RINCIAN YANG MEMANJANG OTOMATIS KE BAWAH -->
+          <table style="width: 100%; border-collapse: collapse; font-size: 10.5px; margin-bottom: 16px;">
+            <thead>
+              <tr style="background: #0f172a; color: #ffffff; text-transform: uppercase; font-size: 9.5px;">
+                <th style="padding: 7px 6px; text-align: center; width: 5%;">No</th>
+                <th style="padding: 7px 6px; text-align: left; width: 13%;">Tanggal</th>
+                <th style="padding: 7px 6px; text-align: left; width: 16%;">No. Nota</th>
+                <th style="padding: 7px 6px; text-align: left; width: 22%;">Uraian / Keterangan</th>
+                <th style="padding: 7px 6px; text-align: center; width: 8%;">PIC</th>
+                <th style="padding: 7px 6px; text-align: right; width: 12%;">Masuk (+)</th>
+                <th style="padding: 7px 6px; text-align: right; width: 12%;">Keluar (-)</th>
+                <th style="padding: 7px 6px; text-align: right; width: 12%;">Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rowsHtml}
+            </tbody>
+            <tfoot>
+              <tr style="background: #f1f5f9; border-top: 2px solid #0f172a; border-bottom: 2px solid #0f172a; font-weight: 800;">
+                <td colspan="5" style="padding: 8px 6px; text-align: right; text-transform: uppercase;">TOTAL MUTASI & SALDO AKHIR :</td>
+                <td style="padding: 8px 6px; text-align: right; font-family: monospace; color: #059669;">+${formatRp(totalMasuk)}</td>
+                <td style="padding: 8px 6px; text-align: right; font-family: monospace; color: #e11d48;">-${formatRp(totalKeluar)}</td>
+                <td style="padding: 8px 6px; text-align: right; font-family: monospace; color: #0f172a; font-size: 11.5px;">${formatRp(saldoAkhir)}</td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <!-- BARCODE, QR & TANDA TANGAN PENGESAHAN -->
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 12px; page-break-inside: avoid;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <img src="${qrUrl}" crossorigin="anonymous" alt="QR" style="width: 68px; height: 68px; border: 1px solid #cbd5e1; padding: 2px; border-radius: 4px;">
+              <div>
+                <svg id="barcodeNotaKas"></svg>
+                <div style="font-size: 8.5px; color: #64748b; margin-top: 2px;">Dokumen Sah Cash Flow Gudang SS K-07</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 28px; text-align: center; font-size: 10px;">
+              <div style="min-width: 120px;">
+                <div>Mengetahui / Manager,</div>
+                <div style="height: 38px;"></div>
+                <div style="font-weight: 800; border-top: 1px solid #0f172a; padding-top: 2px;">( MANAGER )</div>
+              </div>
+              <div style="min-width: 120px;">
+                <div>Admin Gudang SS K-07,</div>
+                <div style="height: 38px;"></div>
+                <div style="font-weight: 800; border-top: 1px solid #0f172a; padding-top: 2px;">( ADMIN )</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+
+      openModal('modalNotaKas');
+
+      setTimeout(() => {
+        try {
+          if (window.JsBarcode) {
+            JsBarcode("#barcodeNotaKas", kodeLap, {
+              format: "CODE128",
+              width: 1.1,
+              height: 28,
+              displayValue: true,
+              fontSize: 9,
+              margin: 0
+            });
+          }
+        } catch (e) {}
+
+        if (autoTriggerPrint) {
+          cetakNotaWindow();
+        }
+      }, 150);
+    }
+
+    async function unduhNotaGambarPNG() {
+      const target = document.getElementById('kartuNotaTarget');
+      if (!target || !window.html2canvas) {
+        cetakNotaWindow();
+        return;
+      }
+      showCenterLoading("Mengunduh Gambar Nota...");
+      try {
+        const canvas = await html2canvas(target, { scale: 2, useCORS: true, backgroundColor: "#ffffff" });
+        const link = document.createElement('a');
+        const kodeRef = notaAktifObj ? notaAktifObj.ref : 'KAS';
+        link.download = `${kodeRef}_SSK07.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        showToast("Gambar Nota Berhasil Diunduh!");
+      } catch (err) {
+        cetakNotaWindow();
+      }
+      hideCenterLoading();
+    }
+
+    function cetakNotaWindow() {
+      const content = document.getElementById('areaCetakNota').innerHTML;
+      const printWin = window.open('', '_blank', 'width=850,height=750');
+      // Menyesuaikan panjang ke bawah secara dinamis (auto-height portrait)
+      printWin.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Cetak Dokumen Kas - Gudang SS K-07</title>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+          <style>
+            @page { size: auto; margin: 10mm; }
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: 'Inter', Arial, sans-serif;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+            #kartuNotaTarget {
+              max-width: 100% !important;
+              width: 100% !important;
+              box-sizing: border-box;
+            }
+            tr { page-break-inside: avoid; }
+          </style>
+        </head>
+        <body>
+          ${content}
+          <script>
+            window.onload = function() {
+              setTimeout(function() { window.print(); window.close(); }, 450);
+            };
+          <\/script>
+        </body>
+        </html>
+      `);
+      printWin.document.close();
+    }
+
+    /* ========================================================= */
+    /* 6. INPUT TRANSAKSI BARU, SALDO AWAL & INTEGRASI GS        */
+    /* ========================================================= */
+    function bukaModalTransaksi(jenis) {
+      setJenisModal(jenis);
+      document.getElementById('inputNominalKas').value = '';
+      document.getElementById('inputKeteranganKas').value = '';
+      document.getElementById('previewNominalText').innerText = 'Rp 0';
+      openModal('modalTransaksiKas');
+      setTimeout(() => document.getElementById('inputNominalKas').focus(), 100);
+    }
+
+    function setJenisModal(jenis) {
+      document.getElementById('inputJenisKas').value = jenis;
+      const header = document.getElementById('headerModalTransaksi');
+      const judul = document.getElementById('judulModalTransaksi');
+      const icon = document.getElementById('iconModalTransaksi');
+      const btnSubmit = document.getElementById('btnSubmitKas');
+      const btnM = document.getElementById('btnSwitchMasuk');
+      const btnK = document.getElementById('btnSwitchKeluar');
+      const selectKat = document.getElementById('inputKategoriKas');
+
+      const count = listTransaksiKas.filter(t => t.jenis === jenis).length + 1;
+      const prefix = jenis === 'MASUK' ? 'KM' : 'KK';
+      document.getElementById('inputRefKas').value = `${prefix}-SSK07-${String(count).padStart(3, '0')}`;
+
+      selectKat.innerHTML = '';
+      const listKategori = jenis === 'MASUK' ? KATEGORI_MASUK : KATEGORI_KELUAR;
+      listKategori.forEach(k => {
+        selectKat.innerHTML += `<option value="${k}">${k}</option>`;
+      });
+
+      if (jenis === 'MASUK') {
+        header.className = "bg-emerald-700 text-white px-4 py-3.5 flex items-center justify-between";
+        judul.innerText = "Input Kas Masuk (+)";
+        icon.className = "fa-solid fa-circle-plus text-base";
+        btnSubmit.className = "w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl text-xs sm:text-sm shadow-lg transition flex items-center justify-center space-x-2";
+        btnM.className = "py-2 rounded-lg text-xs font-extrabold bg-emerald-600 text-white shadow transition";
+        btnK.className = "py-2 rounded-lg text-xs font-extrabold text-slate-500 transition";
+      } else {
+        header.className = "bg-rose-700 text-white px-4 py-3.5 flex items-center justify-between";
+        judul.innerText = "Input Kas Keluar (-)";
+        icon.className = "fa-solid fa-circle-minus text-base";
+        btnSubmit.className = "w-full bg-rose-600 hover:bg-rose-700 text-white font-extrabold py-3 rounded-xl text-xs sm:text-sm shadow-lg transition flex items-center justify-center space-x-2";
+        btnK.className = "py-2 rounded-lg text-xs font-extrabold bg-rose-600 text-white shadow transition";
+        btnM.className = "py-2 rounded-lg text-xs font-extrabold text-slate-500 transition";
+      }
+    }
+
+    function updatePreviewNominal() {
+      const val = Number(document.getElementById('inputNominalKas').value || 0);
+      document.getElementById('previewNominalText').innerText = formatRp(val);
+    }
+
+    async function submitTransaksiKas(e) {
+      e.preventDefault();
+      const jenis = document.getElementById('inputJenisKas').value;
+      const tanggal = document.getElementById('inputTanggalKas').value;
+      const ref = document.getElementById('inputRefKas').value.trim().toUpperCase();
+      const kategori = document.getElementById('inputKategoriKas').value;
+      const pic = document.getElementById('inputPicKas').value;
+      const nominal = Number(document.getElementById('inputNominalKas').value);
+      const keterangan = document.getElementById('inputKeteranganKas').value.trim();
+      const autoOpenNota = document.getElementById('autoOpenNotaCheck').checked;
+
+      if (nominal <= 0) return;
+
+      const now = new Date();
+      const jam = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} WIB`;
+      const newId = "KAS-" + Date.now();
+
+      const newTrx = {
+        id: newId,
+        createdAt: Date.now(),
+        tanggal,
+        jam,
+        jenis,
+        ref,
+        kategori,
+        pic,
+        nominal,
+        keterangan
+      };
+
+      showCenterLoading("Menyimpan Transaksi...");
+      listTransaksiKas.push(newTrx);
+      localStorage.setItem(STORAGE_KEY_TRANSAKSI, JSON.stringify(listTransaksiKas));
+
+      if (gasUrl) {
+        try {
+          const res = await fetch(gasUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action: "TAMBAH_TRANSAKSI_KAS", ...newTrx })
+          });
+          const data = await res.json();
+          if (data.status === 'success' && Array.isArray(data.transaksi)) {
+            listTransaksiKas = data.transaksi;
+            localStorage.setItem(STORAGE_KEY_TRANSAKSI, JSON.stringify(listTransaksiKas));
+          }
+        } catch (err) {}
+      }
+
+      hideCenterLoading();
+      closeModal('modalTransaksiKas');
+      renderSeluruhAplikasi();
+      showToast(`Kas ${jenis} ${formatRp(nominal)} Berhasil Dicatat!`);
+
+      if (autoOpenNota) {
+        bukaModalNota(newId);
+      }
+    }
+
+    async function submitSaldoAwalManual(e) {
+      e.preventDefault();
+      const tanggal = document.getElementById('inputTglSaldoAwal').value;
+      const nominal = Number(document.getElementById('inputNominalSaldoAwal').value || 0);
+      const catatan = document.getElementById('inputCatatanSaldoAwal').value.trim() || "Saldo Awal Kas Gudang SS K-07";
+
+      showCenterLoading("Menyimpan Saldo Awal...");
+      dataSaldoAwal = { tanggal, nominal, catatan };
+      localStorage.setItem(STORAGE_KEY_SALDO_AWAL, JSON.stringify(dataSaldoAwal));
+
+      if (gasUrl) {
+        try {
+          await fetch(gasUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action: "SET_SALDO_AWAL", ...dataSaldoAwal })
+          });
+        } catch (err) {}
+      }
+
+      hideCenterLoading();
+      closeModal('modalSaldoAwal');
+      renderSeluruhAplikasi();
+      showToast("Saldo Awal Berhasil Diperbarui!");
+    }
+
+    async function hapusTransaksiKas(id) {
+      if (!confirm("Hapus transaksi ini? Saldo akan otomatis dihitung ulang.")) return;
+      showCenterLoading("Menghapus Transaksi...");
+
+      listTransaksiKas = listTransaksiKas.filter(t => t.id !== id);
+      localStorage.setItem(STORAGE_KEY_TRANSAKSI, JSON.stringify(listTransaksiKas));
+
+      if (gasUrl) {
+        try {
+          await fetch(gasUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action: "HAPUS_TRANSAKSI_KAS", id })
+          });
+        } catch (err) {}
+      }
+
+      hideCenterLoading();
+      renderSeluruhAplikasi();
+      showToast("Transaksi dihapus & Saldo diperbarui!");
+    }
+
+    async function syncFromGoogleSheets(silent = false) {
+      if (!gasUrl) {
+        if (!silent) openModal('modalCloudSync');
+        return;
+      }
+      const icon = document.getElementById('syncIcon');
+      if (icon) icon.classList.add('fa-spin');
+      if (!silent) showCenterLoading("Sinkronisasi Cloud...");
+
+      try {
+        const res = await fetch(gasUrl);
+        const data = await res.json();
+        if (data.status === 'success') {
+          if (data.saldoAwal) {
+            dataSaldoAwal = data.saldoAwal;
+            localStorage.setItem(STORAGE_KEY_SALDO_AWAL, JSON.stringify(dataSaldoAwal));
+          }
+          if (Array.isArray(data.transaksi)) {
+            listTransaksiKas = data.transaksi;
+            localStorage.setItem(STORAGE_KEY_TRANSAKSI, JSON.stringify(listTransaksiKas));
+          }
+          setDefaultDates();
+          renderSeluruhAplikasi();
+          if (!silent) showToast("Data Tersinkron dengan Google Sheets!");
+        }
+      } catch (err) {
+        if (!silent) showToast("Mode Offline Lokal Aktif");
+      }
+
+      setTimeout(() => {
+        if (icon) icon.classList.remove('fa-spin');
+        if (!silent) hideCenterLoading();
+      }, 400);
+    }
+
+    /* ========================================================= */
+    /* 7. UNDUH LAPORAN CSV (HARIAN, MINGGUAN, BULANAN, SEMUA)   */
+    /* ========================================================= */
+    function exportCashFlowCSV(periodePilihan) {
+      const targetMode = periodePilihan || modePeriodeAktif;
+      const computedList = getTransaksiDenganRunningSaldo();
+      const filtered = filterBerdasarkanMode(computedList, targetMode);
+
+      const saldoAwalVal = Number(dataSaldoAwal.nominal || 0);
+      const totalMasuk = filtered.filter(t => t.jenis === 'MASUK').reduce((a, b) => a + Number(b.nominal || 0), 0);
+      const totalKeluar = filtered.filter(t => t.jenis === 'KELUAR').reduce((a, b) => a + Number(b.nominal || 0), 0);
+      const saldoAkhir = filtered.length > 0 ? filtered[filtered.length - 1].saldoSetelah : saldoAwalVal;
+
+      let ketPeriode = "SEMUA PERIODE";
+      if (targetMode === 'HARIAN') {
+        ketPeriode = "HARIAN (" + (document.getElementById('filterTanggalHarian').value || "Hari Ini") + ")";
+      } else if (targetMode === 'MINGGUAN') {
+        ketPeriode = "MINGGUAN (7 Hari Terakhir)";
+      } else if (targetMode === 'BULANAN') {
+        ketPeriode = "BULANAN (" + document.getElementById('filterBulan').value + "-" + document.getElementById('filterTahun').value + ")";
+      }
+
+      let csvRows = [
+        `"LAPORAN CASH FLOW GUDANG SS K-07"`,
+        `"CV. YUDISTIRA CATTLE AND FARM"`,
+        `"Periode Laporan:","${ketPeriode}"`,
+        `"Waktu Unduh:","${new Date().toLocaleString('id-ID')}"`,
+        `""`,
+        `"RINGKASAN SALDO"`,
+        `"Saldo Awal Manual",${saldoAwalVal}`,
+        `"Total Kas Masuk (+)",${totalMasuk}`,
+        `"Total Kas Keluar (-)",${totalKeluar}`,
+        `"Saldo Akhir Terhitung",${saldoAkhir}`,
+        `""`,
+        `"NO","TANGGAL","JAM","NO. NOTA / REF","JENIS","KATEGORI","URAIAN / KETERANGAN","PIC","MASUK (RP)","KELUAR (RP)","SALDO BERJALAN (RP)"`,
+        `"0","${dataSaldoAwal.tanggal || '-'}","-","SALDO-AWAL","SALDO AWAL","Modal / Saldo Awal","${(dataSaldoAwal.catatan || '').replace(/"/g, '""')}","ADMIN",0,0,${saldoAwalVal}`
+      ];
+
+      filtered.forEach((item, index) => {
+        const masukVal = item.jenis === 'MASUK' ? item.nominal : 0;
+        const keluarVal = item.jenis === 'KELUAR' ? item.nominal : 0;
+        const cleanKet = String(item.keterangan || '').replace(/"/g, '""');
+        const cleanKat = String(item.kategori || '').replace(/"/g, '""');
+
+        csvRows.push(
+          `"${index + 1}","${item.tanggal}","${item.jam || '-'}","${item.ref}","${item.jenis}","${cleanKat}","${cleanKet}","${item.pic || 'ADMIN'}",${masukVal},${keluarVal},${item.saldoSetelah}`
+        );
+      });
+
+      const csvString = "\uFEFF" + csvRows.join("\n");
+      const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `CashFlow_SS_K-07_${targetMode}_${new Date().toISOString().split('T')[0]}.csv`;
+      link.click();
+
+      showToast(`CSV Laporan ${targetMode} Berhasil Diunduh!`);
+    }
+
+    function simpanKonfigurasiGas() {
+      gasUrl = document.getElementById('inputGasUrl').value.trim();
+      localStorage.setItem(STORAGE_KEY_GAS_URL, gasUrl);
+      closeModal('modalCloudSync');
+      showToast("URL Script GS Disimpan!");
+      if (gasUrl) syncFromGoogleSheets(false);
+    }
+
+    function resetSemuaDataKas() {
+      if (!confirm("PERINGATAN: Hapus seluruh riwayat transaksi kas lokal di perangkat ini?")) return;
+      listTransaksiKas = [];
+      localStorage.setItem(STORAGE_KEY_TRANSAKSI, JSON.stringify(listTransaksiKas));
+      closeModal('modalCloudSync');
+      renderSeluruhAplikasi();
+      showToast("Buku Kas Lokal Berhasil Direset!");
+    }
+
+    /* ========================================================= */
+    /* 8. KALKULATOR & HELPER UI                                 */
+    /* ========================================================= */
+    let cExp = "0";
+    function toggleCalc() { document.getElementById('calcPopup').classList.toggle('hidden'); }
+    function cUpd() { document.getElementById('calcDisplay').innerText = cExp; }
+    function cClear() { cExp = "0"; cUpd(); }
+    function cBack() { cExp = cExp.length > 1 ? cExp.slice(0, -1) : "0"; cUpd(); }
+    function cIn(ch) { cExp = (cExp === "0" && !['+','-','*','/'].includes(ch)) ? ch : cExp + ch; cUpd(); }
+    function cEq() {
+      try {
+        const res = Function('"use strict"; return (' + cExp + ')')();
+        cExp = isFinite(res) ? String(Math.round(res * 100) / 100) : "Error";
+      } catch (e) { cExp = "Error"; }
+      cUpd();
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) { el.classList.remove('hidden'); el.classList.add('flex'); }
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) { el.classList.add('hidden'); el.classList.remove('flex'); }
+    }
+
+    function formatRp(num) {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num || 0);
+    }
+
+    let toastTimeout = null;
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      t.classList.remove('hidden');
+      t.classList.add('flex');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        t.classList.add('hidden');
+        t.classList.remove('flex');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
