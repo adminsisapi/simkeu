@@ -939,30 +939,42 @@
         };
       });
     }
-
     function renderSeluruhAplikasi() {
       const computedList = getTransaksiDenganRunningSaldo();
 
       const saldoAwalVal = Number(dataSaldoAwal.nominal || 0);
-      const listMasuk = computedList.filter(t => t.jenis === 'MASUK');
-      const listKeluar = computedList.filter(t => t.jenis === 'KELUAR');
+      const listMasuk = computedList.filter(t => String(t.jenis || '').toUpperCase() === 'MASUK');
+      const listKeluar = computedList.filter(t => String(t.jenis || '').toUpperCase() === 'KELUAR');
 
       const totalMasuk = listMasuk.reduce((acc, cur) => acc + Number(cur.nominal || 0), 0);
       const totalKeluar = listKeluar.reduce((acc, cur) => acc + Number(cur.nominal || 0), 0);
       const saldoAkhir = saldoAwalVal + totalMasuk - totalKeluar;
 
-      document.getElementById('kpiSaldoAkhir').innerText = formatRp(saldoAkhir);
-      document.getElementById('kpiSaldoAwal').innerText = formatRp(saldoAwalVal);
-      document.getElementById('kpiKetSaldoAwal').innerText = dataSaldoAwal.catatan || `Per ${dataSaldoAwal.tanggal}`;
+      // Menggunakan pengecekan aman (if) agar tidak error meskipun kotak Saldo Awal dihapus dari HTML
+      const elAkhir = document.getElementById('kpiSaldoAkhir');
+      if (elAkhir) elAkhir.innerText = formatRp(saldoAkhir);
 
-      document.getElementById('kpiTotalMasuk').innerText = "+" + formatRp(totalMasuk);
-      document.getElementById('kpiCountMasuk').innerText = `${listMasuk.length} Transaksi Masuk`;
+      const elAwal = document.getElementById('kpiSaldoAwal');
+      if (elAwal) elAwal.innerText = formatRp(saldoAwalVal);
 
-      document.getElementById('kpiTotalKeluar').innerText = "-" + formatRp(totalKeluar);
-      document.getElementById('kpiCountKeluar').innerText = `${listKeluar.length} Transaksi Keluar`;
+      const elKetAwal = document.getElementById('kpiKetSaldoAwal');
+      if (elKetAwal) elKetAwal.innerText = dataSaldoAwal.catatan || `Per ${dataSaldoAwal.tanggal}`;
+
+      const elMasuk = document.getElementById('kpiTotalMasuk');
+      if (elMasuk) elMasuk.innerText = "+" + formatRp(totalMasuk);
+
+      const elCountMasuk = document.getElementById('kpiCountMasuk');
+      if (elCountMasuk) elCountMasuk.innerText = `${listMasuk.length} Transaksi Masuk`;
+
+      const elKeluar = document.getElementById('kpiTotalKeluar');
+      if (elKeluar) elKeluar.innerText = "-" + formatRp(totalKeluar);
+
+      const elCountKeluar = document.getElementById('kpiCountKeluar');
+      if (elCountKeluar) elCountKeluar.innerText = `${listKeluar.length} Transaksi Keluar`;
 
       renderTabelKas(computedList);
     }
+
 
     /* ========================================================= */
     /* 4. FILTER PERIODE (HARIAN, MINGGUAN, BULANAN, SEMUA)      */
