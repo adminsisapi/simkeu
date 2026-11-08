@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Cash Flow Gudang SS K-07 - CV. YUDISTIRA CATTLE AND FARM</title>
+  <title>CASH FLOW SS K-07 - CV. YUDISTIRA CATTLE AND FARM</title>
   <link rel="icon" type="image/png" href="cv.png">
   <link rel="apple-touch-icon" href="cv.png">
   <meta name="theme-color" content="#0f172a">
@@ -125,7 +125,7 @@
   <!-- ========================================================= -->
   <!-- 1. BARIS HEADER UTAMA DI ATAS (RESPONSIF HP & TABLET)     -->
   <!-- ========================================================= -->
-  <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-30 border-b border-slate-800 w-full">
+  <header class="bg-slate-900 text-white shadow-lg fixed top-0 left-0 right-0 z-40 border-b border-slate-800 w-full">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5">
       <div class="flex items-center justify-between gap-2">
         
@@ -179,20 +179,19 @@
   <!-- ========================================================= -->
   <!-- 2. KONTEN UTAMA (KOTAK-KOTAK DI DEPAN & TABEL OTOMATIS)   -->
   <!-- ========================================================= -->
-  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 flex-grow w-full space-y-5">
-
+<main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 flex-grow w-full space-y-5">
         <!-- BARIS 1: 3 KOTAK RINGKASAN SALDO OTOMATIS (KPI CARDS) -->
     <section class="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4">
 
       <!-- Kotak 1: Saldo Akhir (Utama) -->
       <div class="col-span-2 lg:col-span-1 bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-900 text-white p-4 rounded-2xl shadow-lg border border-emerald-500/40 flex flex-col justify-between">
         <div class="flex items-center justify-between">
-          <span class="text-[10px] sm:text-xs font-extrabold text-emerald-300 uppercase tracking-wider">SALDO AKHIR SAAT INI</span>
+          <span class="text-[10px] sm:text-xs font-extrabold text-emerald-300 uppercase tracking-wider">SALDO AKHIR LIVE</span>
           <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-sm"><i class="fa-solid fa-vault"></i></span>
         </div>
         <div class="mt-2.5">
           <h2 id="kpiSaldoAkhir" class="text-xl sm:text-2xl font-extrabold font-mono-code text-amber-400 tracking-tight">Rp 0</h2>
-          <p class="text-[10px] text-slate-300 mt-0.5">Otomatis: Saldo Awal + Masuk - Keluar</p>
+          <p class="text-[10px] text-slate-300 mt-0.5">Otomatis</p>
         </div>
       </div>
       <!-- Kotak 2: Total Kas Masuk -->
@@ -261,8 +260,8 @@
           <span class="text-[10px] font-extrabold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">MANUAL</span>
         </div>
         <div class="mt-3">
-          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Set Saldo Awal</h4>
-          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Atur Modal / Saldo Buku Kas</p>
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Saldo Awal</h4>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Modal / Saldo Buku Kas</p>
         </div>
       </button>
 
@@ -275,8 +274,8 @@
           <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">CETAK / CSV</span>
         </div>
         <div class="mt-3">
-          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Cetak & Unduh Laporan</h4>
-          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Model Nota Memanjang & CSV</p>
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-800">Cetak</h4>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Nota  & CSV</p>
         </div>
       </button>
 
@@ -441,7 +440,7 @@
             <select id="inputKategoriKas" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-bold bg-white"></select>
           </div>
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">PIC / Admin *</label>
+            <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Admin *</label>
             <select id="inputPicKas" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-bold bg-white">
               <option value="SUFYAN">SUFYAN</option>
               <option value="HASFHI">HASFHI</option>
@@ -461,18 +460,18 @@
         </div>
 
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Keterangan / Uraian Transaksi *</label>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Keterangan *</label>
           <input type="text" id="inputKeteranganKas" required placeholder="Contoh: Pembayaran pakan / Biaya bongkar muat..." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs sm:text-sm font-semibold">
         </div>
 
         <div class="flex items-center space-x-2 pt-1">
           <input type="checkbox" id="autoOpenNotaCheck" class="w-4 h-4 text-emerald-600 rounded border-slate-300" checked>
-          <label for="autoOpenNotaCheck" class="text-xs font-semibold text-slate-600 cursor-pointer">Langsung tampilkan Nota setelah disimpan</label>
+          <label for="autoOpenNotaCheck" class="text-xs font-semibold text-slate-600 cursor-pointer">tampilkan Nota</label>
         </div>
 
         <button type="submit" id="btnSubmitKas" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl text-xs sm:text-sm shadow-lg transition flex items-center justify-center space-x-2">
           <i class="fa-solid fa-floppy-disk"></i>
-          <span>Simpan Transaksi</span>
+          <span>Simpan</span>
         </button>
       </form>
     </div>
@@ -487,7 +486,7 @@
       <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <span class="w-7 h-7 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-sliders"></i></span>
-          <h3 class="font-bold text-xs sm:text-sm">Set Saldo Awal Manual</h3>
+          <h3 class="font-bold text-xs sm:text-sm">Saldo Awal Manual</h3>
         </div>
         <button type="button" onclick="closeModal('modalSaldoAwal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
       </div>
@@ -528,13 +527,13 @@
       <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-print text-emerald-400 text-base"></i>
-          <h3 class="font-bold text-xs sm:text-sm">Cetak Laporan (Model Nota) & CSV</h3>
+          <h3 class="font-bold text-xs sm:text-sm">Cetak Laporan</h3>
         </div>
         <button type="button" onclick="closeModal('modalPilihCSV')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <div class="p-4 space-y-3">
-        <p class="text-xs text-slate-500">Pilih periode laporan Cash Flow Gudang SS K-07. Klik <b>Cetak / Print</b> untuk mencetak laporan model nota memanjang ke bawah, atau klik <b>CSV</b> untuk Excel:</p>
+        <p class="text-xs text-slate-500">Periode laporan Cash Flow SS K-07:</p>
 
         <!-- Baris 1: Harian -->
         <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between gap-2">
@@ -542,7 +541,7 @@
             <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs"><i class="fa-solid fa-calendar-day"></i></span>
             <div>
               <div class="text-xs font-extrabold text-slate-800">Laporan Harian</div>
-              <div class="text-[10px] text-slate-500">Sesuai filter tanggal harian</div>
+              <div class="text-[10px] text-slate-500">Tanggal</div>
             </div>
           </div>
           <div class="flex space-x-1.5">
@@ -625,7 +624,7 @@
       <div class="bg-slate-900 text-white px-4 py-3 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-receipt text-emerald-400"></i>
-          <h3 id="judulModalNota" class="font-bold text-xs sm:text-sm">Pratinjau Dokumen Kas</h3>
+          <h3 id="judulModalNota" class="font-bold text-xs sm:text-sm">Pratinjau</h3>
         </div>
         <button type="button" onclick="closeModal('modalNotaKas')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
       </div>
@@ -639,13 +638,13 @@
         <button type="button" onclick="closeModal('modalNotaKas')" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold">Tutup</button>
         <div class="flex flex-wrap items-center gap-2">
           <button type="button" id="btnModalExportCsv" onclick="exportCashFlowCSV(modePeriodeAktif)" class="hidden px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold shadow items-center space-x-1.5">
-            <i class="fa-solid fa-file-csv"></i><span>Unduh CSV</span>
+            <i class="fa-solid fa-file-csv"></i><span>CSV</span>
           </button>
           <button type="button" onclick="unduhNotaGambarPNG()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold shadow flex items-center space-x-1.5">
-            <i class="fa-solid fa-image"></i><span>Unduh PNG</span>
+            <i class="fa-solid fa-image"></i><span>PNG</span>
           </button>
           <button type="button" onclick="cetakNotaWindow()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow flex items-center space-x-1.5">
-            <i class="fa-solid fa-print"></i><span>Cetak / Print PDF</span>
+            <i class="fa-solid fa-print"></i><span>Cetak</span>
           </button>
         </div>
       </div>
@@ -661,18 +660,18 @@
       <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-cloud text-emerald-400"></i>
-          <h3 class="font-bold text-xs sm:text-sm">Koneksi Google Sheets (Kode.gs)</h3>
+          <h3 class="font-bold text-xs sm:text-sm">Database</h3>
         </div>
         <button type="button" onclick="closeModal('modalCloudSync')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="p-4 space-y-3.5 text-xs">
         <div>
-          <label class="block font-bold text-slate-700 uppercase text-[11px] mb-1">URL Web App Google Apps Script</label>
+          <label class="block font-bold text-slate-700 uppercase text-[11px] mb-1">Database</label>
           <input type="url" id="inputGasUrl" placeholder="https://script.google.com/macros/s/.../exec" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs">
-          <p class="text-[10px] text-emerald-500 font-semibold mt-1">URL Google Apps Script Anda sudah terpasang otomatis.</p>
+          <p class="text-[10px] text-emerald-500 font-semibold mt-1">Database otomatis.</p>
         </div>
         <div class="flex space-x-2 pt-1">
-          <button type="button" onclick="simpanKonfigurasiGas()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl shadow">Simpan & Sinkronkan</button>
+          <button type="button" onclick="simpanKonfigurasiGas()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl shadow">Sinkronkan</button>
           <button type="button" onclick="resetSemuaDataKas()" class="bg-rose-600/20 hover:bg-rose-600 text-rose-500 hover:text-white font-bold px-3 py-2.5 rounded-xl transition">Reset Lokal</button>
         </div>
       </div>
@@ -738,19 +737,19 @@
     ];
 
     const KATEGORI_MASUK = [
-      "Penjualan Pakan / Konsentrat",
-      "Pelunasan Invoice / Piutang",
-      "Setoran Modal / Kas Pusat",
-      "Penerimaan Lain-lain"
+      "Penjualan",
+      "Pelunasan Invoice",
+      "Setoran / Pusat",
+      "Inventaris"
     ];
 
     const KATEGORI_KELUAR = [
       "Upah Bongkar Muat (Kuli)",
-      "BBM & Operasional Armada",
-      "Pembelian Bahan Baku / Karung",
-      "Biaya Listrik, Air & Gudang",
-      "Konsumsi & Operasional Shift",
-      "Pengeluaran Lain-lain"
+      "Operasional",
+      "Bahan Baku",
+      "Inventaris",
+      "Konsumsi",
+      "Lain-lain"
     ];
 
     let currentSession = JSON.parse(localStorage.getItem(STORAGE_KEY_SESSION)) || null;
@@ -1493,7 +1492,7 @@
         <!DOCTYPE html>
         <html>
         <head>
-          <title>Cetak Dokumen Kas - Gudang SS K-07</title>
+          <title>Cetak - Gudang SS K-07</title>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
           <style>
             @page { size: auto; margin: 10mm; }
